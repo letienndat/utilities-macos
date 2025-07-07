@@ -35,9 +35,9 @@ Hoặc tải từ trang chính thức: [https://www.hammerspoon.org/](https://ww
 ### 4. Setup project
 
 ```
-git clone https://github.com/letienndat/utilities-macos.git
-cd utilities-macos
-bash setup.sh
+ * git clone https://github.com/letienndat/utilities-macos.git
+ * cd utilities-macos
+ * bash setup.sh
 ```
 Các bước:
 1. Kéo repo về
@@ -56,7 +56,7 @@ Tất cả script nằm tại:
 ~/.hammerspoon/
 ```
 
-Có thể phát triển thêm tính năng và gán hotkey nếu cần.
+### Có thể phát triển thêm tính năng và gán hotkey nếu muốn 😆
 
 Các bước triển khai:
 
