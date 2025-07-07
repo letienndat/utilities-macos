@@ -3,7 +3,7 @@
 Script tiện ích cho macOS được xây dựng bằng **Hammerspoon + Lua**. Bao gồm:
 
 - 📋 Clipboard Manager
-- 📋 Paste name branch in field filter Sourcetree
+- 🪄 Paste name branch in field filter Sourcetree
 - 💻 Open current folder in Terminal
 
 ---
@@ -37,7 +37,7 @@ Hoặc tải từ trang chính thức: [https://www.hammerspoon.org/](https://ww
 Tất cả script nằm tại:
 
 ```
-~/.hammerspoon/init.lua
+~/.hammerspoon/
 ```
 
 Có thể phát triển thêm tính năng và gán hotkey nếu cần.
@@ -59,7 +59,7 @@ feature = {
 - description: Mô tả chung về feature
 - hotkey: Hot key hướng dẫn cho việc sử dụng
 - enabled: Trạng thái bật/tắt feature (true hoặc false)
-- module: Tên module của feature (chính là tên file `feaure.lua` đã tạo, nhớ bỏ `.lua` đi)
+- module: Tên module của feature (chính là tên file `feature.lua` đã tạo, nhớ bỏ `.lua` đi)
 
 3. Sau khi chỉnh sửa xong, mở Hammerspoon → chọn **"Reload Config"** để áp dụng thay đổi
 
@@ -81,9 +81,7 @@ feature = {
 
 ## 📸 Screenshot
 
-```markdown
 <img src="/assets/preview.png" width="600" alt="Preview utilities macOS (Hammerspoon + Lua)">
-```
 
 ---
 
