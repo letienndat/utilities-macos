@@ -45,11 +45,21 @@ Có thể phát triển thêm tính năng và gán hotkey nếu cần.
 Các bước triển khai:
 
 1. Tạo file `feature.lua` trong cùng thư mục `~/.hammerspoon/` (`feature` là tính năng mà bạn muốn triển khai thêm)
-2. Trong `init.lua`, thêm dòng:
-
-```lua
-require("feature")
+2. Khai báo `feature` ở vào `features` ở file `feature.lua`
 ```
+feature = {
+    title = "Tiêu đề feature",
+    description = "Mô tả feature",
+    hotkey = "Cmd + Shift + J",
+    enabled = true,
+    module = "Tên module feature"
+}
+```
+- title: Tên của feature
+- description: Mô tả chung về feature
+- hotkey: Hot key hướng dẫn cho việc sử dụng
+- enabled: Trạng thái bật/tắt feature (true hoặc false)
+- module: Tên module của feature (chính là tên file `feaure.lua` đã tạo, nhớ bỏ `.lua` đi)
 
 3. Sau khi chỉnh sửa xong, mở Hammerspoon → chọn **"Reload Config"** để áp dụng thay đổi
 
@@ -57,13 +67,23 @@ require("feature")
 
 ### ⌨️ Hotkeys có sẵn
 
-| Tổ hợp phím       | Tính năng                                                                 |
-| ----------------- | ------------------------------------------------------------------------- |
-| `Cmd + Shift + C` | Mở menu clipboard history và dán mục đã chọn                              |
-| `Cmd + Shift + V` | Dán phần cuối của nhánh Git (phù hợp với filter branch Sourcetree)        |
-| `Cmd + Shift + T` | Mở Terminal với thư mục đang được mở ở Finder                             |
+> 🆘 **Cmd + Shift + H** — Mở menu Help hiển thị tất cả các feature và hotkey được config
 
-> 💡 Sẽ triển khai thêm tính năng Help: Hiển thị tất cả hotkey - feature được config
+### ⌨️ Hotkeys khác
+
+| Tổ hợp phím       | Tính năng                                                                         |
+| ----------------- | --------------------------------------------------------------------------------- |
+| `Cmd + Shift + C` | Mở menu clipboard history và dán mục đã chọn                                      |
+| `Cmd + Shift + V` | Dán phần cuối của nhánh Git (phù hợp với filter branch Sourcetree)                |
+| `Cmd + Shift + T` | Mở Terminal với thư mục đang được mở ở Finder                                     |
+
+---
+
+## 📸 Screenshot
+
+```markdown
+<img src="/assets/preview.png" width="600" alt="Preview utilities macOS (Hammerspoon + Lua)">
+```
 
 ---
 
