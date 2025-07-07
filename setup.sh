@@ -1,12 +1,11 @@
 #!/bin/bash
 
-echo "🔧 Setting up Hammerspoon config..."
+CONFIG_DIR="$HOME/.hammerspoon"
+REPO_DIR="$(pwd)"
 
-if [ ! -d "$HOME/.hammerspoon" ]; then
-  mkdir "$HOME/.hammerspoon"
-fi
+mkdir -p "$CONFIG_DIR"
 
-cp -r ./* "$HOME/.hammerspoon/"
+cp -r "$REPO_DIR/features" "$CONFIG_DIR/"
+cp "$REPO_DIR/init.lua" "$CONFIG_DIR/init.lua"
 
-echo "✅ Copied config to ~/.hammerspoon"
-echo "📢 Open Hammerspoon and click 'Reload Config'"
+echo "Copied config to $CONFIG_DIR"
