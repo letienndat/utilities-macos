@@ -32,7 +32,7 @@ function M.bind()
             local nameBranch = getBranchFromClipboard()
             hs.pasteboard.setContents(nameBranch)
             hs.timer.doAfter(
-            0.15,
+            0.2,
                 function()
                     hs.eventtap.keyStroke({"cmd"}, "v")
                 end
