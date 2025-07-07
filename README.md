@@ -19,16 +19,32 @@ Script tiện ích cho macOS được xây dựng bằng **Hammerspoon + Lua**. 
 ### 2. Cài Hammerspoon
 
 ```bash
-brew install --cask hammerspoon
+brew install hammerspoon --cask
 ```
 
 Hoặc tải từ trang chính thức: [https://www.hammerspoon.org/](https://www.hammerspoon.org/)
 
 ### 3. Mở Hammerspoon & cấp quyền
 
-- Chạy lần đầu → bấm `Open Preferences`
+- Mở Hammerspoon.app (Trong kho ứng dụng)
+- Là lần đầu chạy → bấm `Open Preferences`
 - Vào `System Preferences → Security & Privacy → Accessibility`
 - Thêm Hammerspoon vào danh sách được cấp quyền
+- Mở lại Hammerspoon.app -> app hiển thị trên menu bar -> Bấm icon Hammerspoon -> Chọn Preference -> Chọn option Lauch Hammerspoon at login (để mỗi lần mở máy nó chạy config)
+
+### 4. Setup project
+
+```
+git clone https://github.com/letienndat/utilities-macos.git
+cd utilities-macos
+bash setup.sh
+```
+Các bước:
+1. Kéo repo về
+2. Đi vào folder repo 
+3. Chạy lệnh `bash setup.sh` để di chuyển các file vào folder `~/.hammerspoon` (folder mà Hammerspoon có thể load config)
+4. Bấm vào icon Hammerspoon ở menu bar -> Chọn Reload Config
+5. Bây giờ có thể bấm hotkey `Command + Shift + H` để mở hộp thoại Help (Hiển thị các chức năng được config)
 
 ---
 
@@ -77,6 +93,8 @@ feature = {
 | `Cmd + Shift + V` | Dán phần cuối của nhánh Git (phù hợp với filter branch Sourcetree)                |
 | `Cmd + Shift + T` | Mở Terminal với thư mục đang được mở ở Finder                                     |
 
+> Có thể xây dựng tính năng mới và gán hotkey tuỳ chỉnh của riêng bạn
+
 ---
 
 ## 📸 Screenshot
@@ -94,3 +112,5 @@ Le Tien Dat
 ## 📜 License
 
 MIT License.
+
+## 🫶 Thanks for reading
