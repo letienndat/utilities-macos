@@ -1,14 +1,14 @@
 local features = {
     clipboard_manager = {
         title = "Clipboard Manager",
-        description = "Hiển thị và dán lịch sử clipboard",
+        description = "Hiển thị và dán lịch sử clipboard (Tối đa 50 mục)",
         hotkey = "Cmd + Shift + C",
         enabled = true,
         module = "features.clipboard-manager"
     },
     paste_branch_sourcetree = {
         title = "Paste Git Branch",
-        description = "Dán phần cuối tên nhánh git",
+        description = "Dán phần cuối tên nhánh git (Sử dụng đối với Sourcetree)",
         hotkey = "Cmd + Shift + V",
         enabled = true,
         module = "features.paste-branch-sourcetree"
