@@ -1,4 +1,4 @@
-local help = require("help")
+local help = require("features.help")
 local menubar = hs.menubar.new()
 
 if menubar then

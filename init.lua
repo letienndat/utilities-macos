@@ -1,3 +1,3 @@
-require("app.menubar")
-require("features").initAll()
-require("help")
+require("features.menubar")
+require("features.features").initAll()
+require("features.help")
