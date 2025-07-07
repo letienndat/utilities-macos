@@ -25,13 +25,22 @@ local function openTerminalAt(path)
     if path ~= "" then
         local script =
             [[
-            tell application "Terminal"
-                if not (exists window 1) then reopen
+        tell application "Terminal"
+            if not running then
+                reopen
+                repeat until exists window 1
+                    delay 0.1
+                end repeat
                 do script "cd ']] ..
-            path .. [['" in front window
-                activate
-            end tell
-        ]]
+            path ..
+                [['" in window 1
+            else
+                do script "cd ']] ..
+                    path .. [['"
+            end if
+            activate
+        end tell
+    ]]
         hs.osascript.applescript(script)
     else
         hs.alert("There are no open folders in Finder")
