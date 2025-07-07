@@ -21,11 +21,24 @@ local function getBranchFromClipboard()
     return last
 end
 
--- Assign hotkey Cmd + Shift + V
-hs.hotkey.bind({"cmd", "shift"}, "V", function()
-    local nameBranch = getBranchFromClipboard()
-    hs.pasteboard.setContents(nameBranch)
-    hs.timer.doAfter(0.15, function()
-        hs.eventtap.keyStroke({"cmd"}, "v")
-    end)
-end)
+local M = {}
+
+function M.bind()
+    -- Assign hotkey Cmd + Shift + V
+    return hs.hotkey.bind(
+        {"cmd", "shift"},
+        "V",
+        function()
+            local nameBranch = getBranchFromClipboard()
+            hs.pasteboard.setContents(nameBranch)
+            hs.timer.doAfter(
+            0.15,
+                function()
+                    hs.eventtap.keyStroke({"cmd"}, "v")
+                end
+            )
+        end
+    )
+end
+
+return M
