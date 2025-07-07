@@ -22,31 +22,32 @@ local features = {
     }
 }
 
-local hotkeyRefs = {}
+local loadedModules = {}
 
 local function loadFeature(name)
     local info = features[name]
-    if not info then
-        return
-    end
+    if not info then return end
+
     local mod = require(info.module)
-    if type(mod.bind) == "function" then
-        hotkeyRefs[name] = mod.bind()
+    if mod and type(mod.start) == "function" then
+        loadedModules[name] = mod
+        mod.start()
     end
 end
 
 local function unloadFeature(name)
-    if hotkeyRefs[name] then
-        hotkeyRefs[name]:disable()
-        hotkeyRefs[name]:delete()
-        hotkeyRefs[name] = nil
+    local mod = loadedModules[name]
+    if mod and type(mod.stop) == "function" then
+        mod.stop()
+        loadedModules[name] = nil
     end
 end
 
 local function toggleFeature(name, on)
-    unloadFeature(name)
     if on then
         loadFeature(name)
+    else
+        unloadFeature(name)
     end
     features[name].enabled = on
 end
