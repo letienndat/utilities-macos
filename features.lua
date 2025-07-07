@@ -4,21 +4,21 @@ local features = {
         description = "Hiển thị và dán lịch sử clipboard",
         hotkey = "Cmd + Shift + C",
         enabled = true,
-        module = "clipboard-manager"
+        module = "features.clipboard-manager"
     },
     paste_branch_sourcetree = {
         title = "Paste Git Branch",
         description = "Dán phần cuối tên nhánh git",
         hotkey = "Cmd + Shift + V",
         enabled = true,
-        module = "paste-branch-sourcetree"
+        module = "features.paste-branch-sourcetree"
     },
     open_terminal = {
         title = "Open Current Folder With Terminal",
         description = "Mở thư mục hiện tại ở Finder với Terminal",
         hotkey = "Cmd + Shift + T",
         enabled = true,
-        module = "open-terminal"
+        module = "features.open-terminal"
     }
 }
 
