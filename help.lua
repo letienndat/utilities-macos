@@ -8,13 +8,13 @@ hs.hotkey.bind(
         local choices = {}
 
         for key, info in pairs(list) do
-            local status = info.enabled and "✅" or "❌"
+            local status = info.enabled and "✅ Đang bật: " or "❌ Đã tắt: "
             table.insert(
                 choices,
                 {
                     title = info.title,
-                    text = string.format("%s %s", status, info.title),
-                    subText = info.description .. " – " .. info.hotkey,
+                    text = string.format("%s %s -- %s", status, info.title, info.hotkey),
+                    subText = info.description,
                     uuid = key
                 }
             )
@@ -26,12 +26,12 @@ hs.hotkey.bind(
                     local key = choice.uuid
                     local newState = not list[key].enabled
                     features.toggleFeature(key, newState)
-                    hs.alert((newState and "Enable" or "Disable") .. " Feature `" .. choice.title .. "` Successfully")
+                    hs.alert((newState and "Đã bật" or "Đã tắt") .. " feature: " .. choice.title)
                 end
             end
         )
         :choices(choices)
-        :placeholderText("Enter name feature")
+        :placeholderText("Tìm feature (Ở đây chỉ BẬT/TẮT feature)")
         :show()
     end
 )
