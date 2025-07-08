@@ -111,12 +111,12 @@ brew untap letienndat/hstools
 
 ## 🧑‍💻 Tác giả
 
-Le Tien Dat
+[Le Tien Dat](https://github.com/letienndat)
 
 ---
 
 ## 📜 License
 
-MIT License.
+[MIT License.](https://github.com/letienndat/utilities-macos?tab=MIT-1-ov-file#)
 
 ## 🫶 Thanks for reading
