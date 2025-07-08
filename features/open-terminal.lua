@@ -27,10 +27,20 @@ end
 -- Open Terminal.app in this path (always new window)
 local function openTerminalAt(path)
     local script = [[
-        tell application "Terminal"
-            activate
-            do script "cd ']] .. path .. [['; clear"
-        end tell
+        if application "Terminal" is running then
+            tell application "Terminal"
+                do script "cd ']] .. path .. [['"
+                activate
+            end tell
+        else
+            tell application "Terminal"
+                activate
+                repeat until exists window 1
+                    delay 0.1
+                end repeat
+                do script "cd ']] .. path .. [['" in window 1
+            end tell
+        end if
     ]]
     hs.osascript.applescript(script)
 end
