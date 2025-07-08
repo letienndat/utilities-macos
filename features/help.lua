@@ -2,7 +2,7 @@
 --=============MENU HELP -- [CMD+SHIFT+H]============================
 --===================================================================
 
-local features = require("features.features")
+local features = require("features")
 
 local M = {}
 
