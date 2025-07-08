@@ -16,8 +16,8 @@ function M.show()
             choices,
             {
                 title = info.title,
-                text = string.format("%s %s -- %s", status, info.title, info.hotkey),
-                subText = info.description,
+                text = string.format("%s %s [%s]", status, info.title, info.hotkey),
+                subText = "\n" .. info.description,
                 uuid = key
             }
         )
