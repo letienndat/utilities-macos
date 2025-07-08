@@ -3,6 +3,10 @@
 CONFIG_DIR="$HOME/.hammerspoon"
 REPO_DIR="$(pwd)"
 
+echo "installing to: $CONFIG_DIR"
+echo "real home: $HOME"
+pwd
+
 mkdir -p "$CONFIG_DIR"
 
 shopt -s dotglob nullglob
