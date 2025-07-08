@@ -2,9 +2,9 @@
 
 Script tiện ích cho macOS được xây dựng bằng **Hammerspoon + Lua**. Bao gồm:
 
-- 📋 Clipboard Manager
-- 🪄 Paste name branch in field filter Sourcetree
-- 💻 Open current folder in Terminal
+- 📋 Clipboard Manager (Hiển thị lịch sử những từ được sao chép)
+- 🪄 Paste name branch in field filter Sourcetree (Dán đuôi của branch - phù hợp với chức năng filter ở Sourcetree)
+- 💻 Open current folder in Terminal (Mở folder đang hiển thị ở Finder với Terminal)
 
 ---
 
@@ -16,35 +16,30 @@ Script tiện ích cho macOS được xây dựng bằng **Hammerspoon + Lua**. 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-### 2. Cài Hammerspoon
+### 2. Cài chương trình
 
+**Bước 1:**
 ```bash
-brew install hammerspoon --cask
+brew install --cask hammerspoon && brew install letienndat/hstools/utilities-macos
 ```
 
-Hoặc tải từ trang chính thức: [https://www.hammerspoon.org/](https://www.hammerspoon.org/)
+Nó cần cài: hammerspoon (bắt buộc, nếu thiết bị của bạn đã cài thì nó tự động bỏ qua không cài nữa, vì chương trình của tôi chạy trên môi trường hammerspoon)
 
-### 3. Mở Hammerspoon & cấp quyền
-
-- Mở Hammerspoon.app (Trong kho ứng dụng)
-- Là lần đầu chạy → bấm `Open Preferences`
-- Vào `System Preferences → Security & Privacy → Accessibility`
-- Thêm Hammerspoon vào danh sách được cấp quyền
-- Mở lại Hammerspoon.app -> app hiển thị trên menu bar -> Bấm icon Hammerspoon -> Chọn Preference -> Chọn option Lauch Hammerspoon at login (để mỗi lần mở máy nó chạy config)
-
-### 4. Setup project
-
+**Bước 2:**
+```bash
+bash $(brew --cellar utilities-macos)/$(brew list --versions utilities-macos | awk '{print $2}')/install.sh
 ```
- * git clone https://github.com/letienndat/utilities-macos.git
- * cd utilities-macos
- * bash setup.sh
-```
-Các bước:
-1. Kéo repo về
-2. Đi vào folder repo 
-3. Chạy lệnh `bash setup.sh` để di chuyển các file vào folder `~/.hammerspoon` (folder mà Hammerspoon có thể load config)
-4. Bấm vào icon Hammerspoon ở menu bar -> Chọn Reload Config
-5. Bây giờ có thể bấm hotkey `Command + Shift + H` để mở hộp thoại Help (Hiển thị các chức năng được config)
+
+Chạy script install.sh để copy script `.lua` thù folder mặc định brew pull về sang folder `~/.hammerspoon` của Hammerspoon
+
+### 3. Mở app Hammerspoon & cấp quyền
+
+1. Mở Hammerspoon.app (Trong kho ứng dụng)
+2. Là lần đầu chạy → bấm `Open Preferences` → Vào `System Preferences → Security & Privacy → Accessibility`
+3. Thêm Hammerspoon vào danh sách được cấp quyền
+4. Mở lại Hammerspoon.app -> app hiển thị trên menu bar -> Bấm icon Hammerspoon -> Chọn Preference -> Chọn option Lauch Hammerspoon at login (để mỗi lần mở máy nó tự động chạy config)
+5. Bấm vào icon Hammerspoon ở menu bar -> Chọn Reload Config
+6. Bây giờ có thể bấm hotkey `Command + Shift + H` để mở hộp thoại Help (Hiển thị các chức năng được config)
 
 ---
 
@@ -60,8 +55,8 @@ Tất cả script nằm tại:
 
 Các bước triển khai:
 
-1. Tạo file `feature.lua` trong cùng thư mục `~/.hammerspoon/` (`feature` là tính năng mà bạn muốn triển khai thêm)
-2. Khai báo `feature` ở vào `features` ở file `feature.lua`
+1. Tạo file `feature.lua` trong thư mục `~/.hammerspoon/features/` (`feature` là tính năng mà bạn muốn triển khai thêm)
+2. Khai báo `feature` bạn muốn vào biến `features` trong file `features.lua`
 ```
 feature = {
     title = "Tiêu đề feature",
