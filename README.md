@@ -18,21 +18,21 @@ Script tiện ích cho macOS được xây dựng bằng **Hammerspoon + Lua**. 
 
 ### 2. Cài chương trình
 
-**Bước 1:**
+**Bước 1:** Cài hammerspoon + utilities-macos
 ```bash
 brew install --cask hammerspoon && brew install letienndat/hstools/utilities-macos
 ```
 
 Nó cần cài: hammerspoon (bắt buộc, nếu thiết bị của bạn đã cài thì nó tự động bỏ qua không cài nữa, vì chương trình của tôi chạy trên môi trường hammerspoon)
 
-**Bước 2:**
+**Bước 2:** Chạy script install.sh để sao chép script `.lua` vào folder `~/.hammerspoon`
 ```bash
 bash $(brew --cellar utilities-macos)/$(brew list --versions utilities-macos | awk '{print $2}')/install.sh
 ```
 
 Chạy script install.sh để copy script `.lua` thù folder mặc định brew pull về sang folder `~/.hammerspoon` của Hammerspoon
 
-### 3. Mở app Hammerspoon & cấp quyền
+**Bước 3:** Mở app Hammerspoon & cấp quyền
 
 1. Mở Hammerspoon.app (Trong kho ứng dụng)
 2. Là lần đầu chạy → bấm `Open Preferences` → Vào `System Preferences → Security & Privacy → Accessibility`
@@ -89,6 +89,17 @@ feature = {
 | `Cmd + Shift + T` | Mở Terminal với thư mục đang được mở ở Finder                                     |
 
 > Có thể xây dựng tính năng mới và gán hotkey tuỳ chỉnh của riêng bạn
+
+---
+
+## Gỡ cài đặt
+
+#### Để gỡ cài đặt, vui lòng chạy script sau:
+
+```bash
+brew uninstall --cask hammerspoon && brew uninstall letienndat/hstools/utilities-macos
+brew untap letienndat/hstools
+```
 
 ---
 
