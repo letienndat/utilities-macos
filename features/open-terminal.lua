@@ -8,41 +8,31 @@ local hotkey = nil
 
 -- Get the path of the folder currently open in Finder
 local function getCurrentFolderInFinder()
-    local _, output = hs.osascript.applescript([[
+    local ok, path = hs.osascript.applescript([[
         tell application "Finder"
-            try
-                set thePath to (POSIX path of (target of front window as alias))
-                return thePath
-            on error
+            if (count of windows) = 0 then
                 return ""
-            end try
+            else
+                return POSIX path of (target of front window as alias)
+            end if
         end tell
     ]])
-    return output
+    if ok and path ~= "" then
+        return path
+    else
+        return nil
+    end
 end
 
 -- Open Terminal.app in this path (always new window)
 local function openTerminalAt(path)
-    if path ~= "" then
-        local script = [[
-            tell application "Terminal"
-                if not running then
-                    reopen
-                    repeat until exists window 1
-                        delay 0.1
-                    end repeat
-                    do script "cd ']] .. path .. [['" in window 1
-                else
-                    do script "cd ']] .. path .. [['"
-                    do script "clear" in (do script "")
-                end if
-                activate
-            end tell
-        ]]
-        hs.osascript.applescript(script)
-    else
-        hs.alert("There are no open folders in Finder")
-    end
+    local script = [[
+        tell application "Terminal"
+            activate
+            do script "cd ']] .. path .. [['; clear"
+        end tell
+    ]]
+    hs.osascript.applescript(script)
 end
 
 -- Start feature
