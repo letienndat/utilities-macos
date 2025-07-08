@@ -1,0 +1,13 @@
+#!/bin/bash
+
+CONFIG_DIR="$HOME/.hammerspoon"
+REPO_DIR="$(dirname "$(realpath "$0")")/.."
+
+echo "Installing utilities-macos to: $CONFIG_DIR"
+mkdir -p "$CONFIG_DIR"
+
+shopt -s dotglob nullglob
+cp -r "$REPO_DIR"/* "$CONFIG_DIR"/
+shopt -u dotglob nullglob
+
+echo "✅ Done!"
