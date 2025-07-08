@@ -6,16 +6,19 @@ REAL_HOME=$(dscl . -read /Users/$(whoami) NFSHomeDirectory | awk '{print $2}')
 CONFIG_DIR="$REAL_HOME/.hammerspoon"
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-echo "Copying configs to: $CONFIG_DIR"
+echo "Copying selected configs to: $CONFIG_DIR"
+
 mkdir -p "$CONFIG_DIR"
 
-if [ ! -d "$REPO_DIR" ]; then
-    echo "Repo folder not found: $REPO_DIR"
-    exit 1
-fi
+TARGETS=("features" "features.lua" "init.lua")
 
-shopt -s dotglob nullglob
-cp -r "$REPO_DIR"/* "$CONFIG_DIR"/
-shopt -u dotglob nullglob
+for item in "${TARGETS[@]}"; do
+    if [ -e "$REPO_DIR/$item" ]; then
+        echo "→ Copying $item"
+        cp -R "$REPO_DIR/$item" "$CONFIG_DIR/"
+    else
+        echo "Skipped missing: $item"
+    fi
+done
 
-echo "Installed to $CONFIG_DIR"
+echo "Done copying to $CONFIG_DIR"
