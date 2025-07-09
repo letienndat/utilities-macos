@@ -19,15 +19,27 @@ Script tiện ích cho macOS được xây dựng bằng **Hammerspoon + Lua**. 
 ### 2. Cài chương trình
 
 **Bước 1:** Cài hammerspoon + utilities-macos
+#### Version lastest
 ```bash
 brew install --cask hammerspoon && brew install letienndat/hstools/utilities-macos
+```
+
+#### Chỉ định version (ví dụ: 1.1.3)
+```bash
+brew install --cask hammerspoon && brew install letienndat/hstools/utilities-macos@1.1.3
 ```
 
 Nó cần cài: hammerspoon (bắt buộc, nếu thiết bị của bạn đã cài thì nó tự động bỏ qua không cài nữa, vì chương trình của tôi chạy trên môi trường hammerspoon)
 
 **Bước 2:** Chạy script install.sh để sao chép script `.lua` vào folder `~/.hammerspoon`
+#### Version lastest
 ```bash
 bash $(brew --cellar utilities-macos)/$(brew list --versions utilities-macos | awk '{print $2}')/install.sh
+```
+
+#### Chỉ định version (ví dụ: 1.1.3)
+```bash
+bash $(brew --cellar utilities-macos@1.1.3)/1.1.3/install.sh
 ```
 
 Chạy script install.sh để copy script `.lua` thù folder mặc định brew pull về sang folder `~/.hammerspoon` của Hammerspoon
@@ -98,6 +110,12 @@ feature = {
 
 ```bash
 brew uninstall --cask hammerspoon && brew uninstall letienndat/hstools/utilities-macos
+brew untap letienndat/hstools
+```
+
+#### Nếu muốn chỉ định version khi xoá (ví dụ 1.1.3)
+```bash
+brew uninstall --cask hammerspoon && brew uninstall letienndat/hstools/utilities-macos@1.1.3
 brew untap letienndat/hstools
 ```
 
