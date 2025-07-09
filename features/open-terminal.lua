@@ -54,7 +54,6 @@ local function openTerminalAt(path)
                 repeat until exists window 1
                     delay 0.1
                 end repeat
-                do script "" in window 1
             end tell
         end if
     ]]
