@@ -106,14 +106,14 @@ feature = {
 
 ## Gỡ cài đặt
 
-#### Để gỡ cài đặt, vui lòng chạy script sau:
+#### Khi bạn đã cài version lastest:
 
 ```bash
 brew uninstall --cask hammerspoon && brew uninstall letienndat/hstools/utilities-macos
 brew untap letienndat/hstools
 ```
 
-#### Nếu muốn chỉ định version khi xoá (ví dụ 1.1.3)
+#### Chỉ định version (ví dụ 1.1.3)
 ```bash
 brew uninstall --cask hammerspoon && brew uninstall letienndat/hstools/utilities-macos@1.1.3
 brew untap letienndat/hstools
