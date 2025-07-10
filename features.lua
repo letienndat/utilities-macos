@@ -15,7 +15,7 @@ local features = {
     },
     open_terminal = {
         title = "Open Current Folder With Terminal",
-        description = "Mở thư mục hiện tại ở Finder với Terminal",
+        description = "Mở Terminal với đường dẫn hiện tại ở Finder",
         hotkey = "Cmd + Shift + T",
         enabled = true,
         module = "features.open-terminal"
@@ -64,8 +64,29 @@ local function getFeatureList()
     return features
 end
 
+local function trimToNumberLines(text, numberLines)
+    text = tostring(text or "")
+    numberLines = numberLines or 5
+    local lines = {}
+    for line in text:gmatch("[^\n]+") do
+        table.insert(lines, line)
+    end
+
+    if #lines > numberLines then
+        local trimmed = {}
+        for i = 1, numberLines do
+            table.insert(trimmed, lines[i])
+        end
+        trimmed[numberLines] = trimmed[numberLines] .. "…"
+        return table.concat(trimmed, "\n")
+    else
+        return text
+    end
+end
+
 return {
     toggleFeature = toggleFeature,
     getFeatureList = getFeatureList,
-    initAll = initAll
+    initAll = initAll,
+    trimToNumberLines = trimToNumberLines
 }

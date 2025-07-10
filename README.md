@@ -4,7 +4,7 @@ Script tiện ích cho macOS được xây dựng bằng **Hammerspoon + Lua**. 
 
 - 📋 Clipboard Manager (Hiển thị lịch sử những từ được sao chép)
 - 🪄 Paste name branch in field filter Sourcetree (Dán đuôi của branch - phù hợp với chức năng filter ở Sourcetree)
-- 💻 Open current folder in Terminal (Mở folder đang hiển thị ở Finder với Terminal)
+- 💻 Open current folder in Terminal (Mở Terminal với đường dẫn hiện tại ở Finder)
 
 ---
 
@@ -24,9 +24,9 @@ Script tiện ích cho macOS được xây dựng bằng **Hammerspoon + Lua**. 
 brew install --cask hammerspoon && brew install letienndat/hstools/utilities-macos
 ```
 
-#### Chỉ định version (ví dụ: 1.1.3)
+#### Chỉ định version (ví dụ: 1.1.4)
 ```bash
-brew install --cask hammerspoon && brew install letienndat/hstools/utilities-macos@1.1.3
+brew install --cask hammerspoon && brew install letienndat/hstools/utilities-macos@1.1.4
 ```
 
 Nó cần cài: hammerspoon (bắt buộc, nếu thiết bị của bạn đã cài thì nó tự động bỏ qua không cài nữa, vì chương trình của tôi chạy trên môi trường hammerspoon)
@@ -37,9 +37,9 @@ Nó cần cài: hammerspoon (bắt buộc, nếu thiết bị của bạn đã c
 bash $(brew --cellar utilities-macos)/$(brew list --versions utilities-macos | awk '{print $2}')/install.sh
 ```
 
-#### Chỉ định version (ví dụ: 1.1.3)
+#### Chỉ định version (ví dụ: 1.1.4)
 ```bash
-bash $(brew --cellar utilities-macos@1.1.3)/1.1.3/install.sh
+bash $(brew --cellar utilities-macos@1.1.4)/1.1.4/install.sh
 ```
 
 Chạy script install.sh để copy script `.lua` thù folder mặc định brew pull về sang folder `~/.hammerspoon` của Hammerspoon
@@ -98,7 +98,7 @@ feature = {
 | ----------------- | --------------------------------------------------------------------------------- |
 | `Cmd + Shift + C` | Mở menu clipboard history và dán mục đã chọn                                      |
 | `Cmd + Shift + V` | Dán phần cuối của nhánh Git (phù hợp với filter branch Sourcetree)                |
-| `Cmd + Shift + T` | Mở Terminal với thư mục đang được mở ở Finder                                     |
+| `Cmd + Shift + T` | Mở Terminal với đường dẫn hiện tại ở Finder                                       |
 
 > Có thể xây dựng tính năng mới và gán hotkey tuỳ chỉnh của riêng bạn
 
@@ -113,9 +113,9 @@ brew uninstall --cask hammerspoon && brew uninstall letienndat/hstools/utilities
 brew untap letienndat/hstools
 ```
 
-#### Chỉ định version (ví dụ 1.1.3)
+#### Chỉ định version (ví dụ 1.1.4)
 ```bash
-brew uninstall --cask hammerspoon && brew uninstall letienndat/hstools/utilities-macos@1.1.3
+brew uninstall --cask hammerspoon && brew uninstall letienndat/hstools/utilities-macos@1.1.4
 brew untap letienndat/hstools
 ```
 
@@ -127,14 +127,6 @@ brew untap letienndat/hstools
 
 ---
 
-## 🧑‍💻 Tác giả
-
-[Le Tien Dat](https://github.com/letienndat)
-
----
-
 ## 📜 License
 
 [MIT License.](https://github.com/letienndat/utilities-macos?tab=MIT-1-ov-file#)
-
-## 🫶 Thanks for reading

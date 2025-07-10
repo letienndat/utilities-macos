@@ -9,15 +9,18 @@ local M = {}
 function M.show()
     local list = features.getFeatureList()
     local choices = {}
+    local numberLinesSubText = 5
 
     for key, info in pairs(list) do
-        local status = info.enabled and "✅ Đang bật: " or "❌ Đã tắt: "
+        local status = string.format("%s [%s] %s", info.enabled and "✅" or "❌", info.hotkey, info.enabled and "Đang bật" or "Đã tắt")
+        local subTextFormatted = features.trimToNumberLines(info.description, numberLinesSubText)
+
         table.insert(
             choices,
             {
                 title = info.title,
-                text = string.format("%s %s [%s]", status, info.title, info.hotkey),
-                subText = "\n" .. info.description,
+                text = string.format("%s: %s", status, info.title),
+                subText = "\n" .. subTextFormatted,
                 uuid = key
             }
         )

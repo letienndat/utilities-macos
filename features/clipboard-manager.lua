@@ -2,10 +2,13 @@
 --=============CLIPBOARD-MANAGER - SHOW LIST TEXT COPIED -- [CMD+SHIFT+C]===========================
 --==================================================================================================
 
+local features = require("features")
+
 local M = {}
 
 local clipboardHistory = {}
 local maxHistorySize = 50
+local numberLinesSubText = 8
 
 local watcher = nil
 local hotkey = nil
@@ -45,6 +48,7 @@ function M.start()
                 if #preview > 100 then
                     preview = preview:sub(1, 100) .. "…"
                 end
+                text = features.trimToNumberLines(text, numberLinesSubText)
                 table.insert(choices, { text = preview, subText = text })
             end
 
@@ -58,7 +62,7 @@ function M.start()
                     end)
                 end)
                 :choices(choices)
-                :placeholderText("Enter value to paste")
+                :placeholderText("Search item copied")
                 :searchSubText(true)
                 :show()
         end)
