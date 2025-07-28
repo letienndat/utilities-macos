@@ -26,7 +26,7 @@ end
 -- Start feature
 function M.start()
     if not hotkey then
-        -- Assign hotkey Cmd + Shift + V
+        -- Assign hotkey Cmd + Shift + V - Can permission Accessibility (access in settings macos)
         hotkey = hs.hotkey.bind({ "cmd", "shift" }, "V", function()
             local nameBranch = getBranchFromClipboard()
             hs.pasteboard.setContents(nameBranch)

@@ -97,7 +97,7 @@ feature = {
 | Tổ hợp phím       | Tính năng                                                                         |
 | ----------------- | --------------------------------------------------------------------------------- |
 | `Cmd + Shift + C` | Mở menu clipboard history và dán mục đã chọn                                      |
-| `Cmd + Shift + V` | Dán phần cuối của nhánh Git (phù hợp với filter branch Sourcetree)                |
+| `Cmd + Shift + V` | Dán phần cuối của nhánh Git (phù hợp với filter branch Sourcetree) (Tính năng này yêu cầu quyền Accessibility để có thể auto paste - Vui lòng bật ở settings macos)                                     |
 | `Cmd + Shift + T` | Mở Terminal với đường dẫn hiện tại ở Finder                                       |
 
 > Có thể xây dựng tính năng mới và gán hotkey tuỳ chỉnh của riêng bạn
