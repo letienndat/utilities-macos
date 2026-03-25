@@ -12,7 +12,8 @@ function M.show()
     local numberLinesSubText = 5
 
     for key, info in pairs(list) do
-        local status = string.format("%s [%s] %s", info.enabled and "✅" or "❌", info.hotkey, info.enabled and "Đang bật" or "Đã tắt")
+        local status =
+            string.format("%s [%s] %s", info.enabled and "✅" or "❌", info.hotkey, info.enabled and "ON" or "OFF")
         local subTextFormatted = features.trimToNumberLines(info.description, numberLinesSubText)
 
         table.insert(
@@ -32,20 +33,13 @@ function M.show()
                 local key = choice.uuid
                 local newState = not list[key].enabled
                 features.toggleFeature(key, newState)
-                hs.alert((newState and "Đã bật" or "Đã tắt") .. " feature: " .. choice.title)
+                hs.alert((newState and "Turn ON" or "Turn OFF") .. " feature: " .. choice.title)
             end
         end
-    )
-        :choices(choices)
-        :placeholderText("Tìm feature (Ở đây chỉ BẬT/TẮT feature)")
-        :show()
+    ):choices(choices):bgDark(true):placeholderText("Search feature (ON / OFF feature in here)"):show()
 end
 
 -- Assign hotkey Cmd + Shift + C
-hs.hotkey.bind(
-    { "cmd", "shift" },
-    "H",
-    M.show
-)
+hs.hotkey.bind({"cmd", "shift"}, "H", M.show)
 
 return M
